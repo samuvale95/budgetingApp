@@ -1,3 +1,9 @@
 {
-    
+    "nav": {
+        "dashboard": "Dashboard",
+        "transazioni": "Transazioni",
+        "planning": "Planning",
+        "grafici": "Grafici",
+        "impostazioni": "Impostazioni"
+    }
 }

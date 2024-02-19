@@ -1,41 +1,14 @@
-import { HttpClient, provideHttpClient } from '@angular/common/http';
-import { Component, importProvidersFrom } from '@angular/core';
-import { bootstrapApplication } from '@angular/platform-browser';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { NavMenuComponent } from "../shared/nav-menu/nav-menu.component";
 
-export function HttpLoaderFactory(httpClient: HttpClient){
-  return new TranslateHttpLoader(httpClient);
-}
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet, TranslateModule],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+    selector: 'app-root',
+    standalone: true,
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.scss',
+    imports: [RouterOutlet, NavMenuComponent]
 })
 export class AppComponent {
   title = 'budgeting-app';
-
-  constructor (public translate: TranslateService) {
-    translate.addLangs(['it']);
-    translate.setDefaultLang('it');
-    translate.use('it');
-  }
 }
-
-bootstrapApplication(AppComponent, {
-  providers: [
-    provideHttpClient(),
-    importProvidersFrom(
-      TranslateModule.forRoot({
-          loader:{
-            provide: TranslateLoader,
-            useFactory: HttpLoaderFactory,
-            deps: [HttpClient]
-          }
-        })
-    )
-  ]
-})

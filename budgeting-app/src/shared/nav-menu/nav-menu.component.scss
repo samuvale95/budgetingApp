@@ -1,3 +1,52 @@
-.menu {
-    width: 0.625rem;
-} 
+nav{
+    height: 100%;
+    justify-content: center;
+    color: black;
+}
+
+a, a:hover {
+    text-decoration: none;
+    background-color: transparent;
+    color: black;
+}
+
+.col-sm {
+    background-color: #F1F5F9;
+    width: 104px;
+    height: 100%;
+}
+
+.material-icons-round {
+    font-size: 48px !important;
+}
+
+.material-icons-sharp {
+    font-size: 48px !important;
+}
+
+.material-icons {
+    font-size: 48px !important;
+}
+
+.menu-item-stack {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center content horizontally */
+    justify-content: center; /* Center content vertically */
+}
+
+.row-item-menu {
+    display: flex; /* Enable horizontal centering for all rows */
+    justify-content: center;
+    align-items: center;
+}
+
+.row-item-menu.row-item-menu-middle{
+    margin-top: 30px;
+}
+
+.row-item-menu.fixed-bottom {
+    position: absolute;
+    bottom: 10px;
+    width: 104px;
+}

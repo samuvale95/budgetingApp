@@ -1,9 +1,54 @@
-<nav>
-    <ul class="menu">
-        <li>{{'nav.dashboard'}} | translate </li>
-        <li>{{'nav.transazioni'}} | translate </li>
-        <li>{{'nav.planning'}} | translate </li>
-        <li>{{'nav.grafici'}} | translate </li>
-        <li>{{'nav.impostazioni'}} | translate </li>
-    </ul>
+<nav class="container_custom">
+    <div class="col-sm">
+        <div class="row row-item-menu">
+            <div class="menu-item-stack">
+                <div class="icon">
+                    <span class="material-icons-round">dashboard</span>
+                </div>
+                <div class="menu-item-title">
+                    <a href="#">{{'nav.dashboard'  | translate }}</a>
+                </div>
+            </div>
+        </div>
+        <div class="row row-item-menu row-item-menu-middle">
+            <div class="menu-item-stack">
+                <div class="icon">
+                    <span class="material-icons-round">format_list_numbered</span>
+                </div>
+                <div class="menu-item-title">
+                    <a href="#">{{'nav.transazioni' | translate }}</a>
+                </div>
+            </div>
+        </div>
+        <div class="row row-item-menu row-item-menu-middle">
+            <div class="menu-item-stack">
+                <div class="icon">
+                    <span class="material-icons-round">calendar_today</span>
+                </div>
+                <div class="menu-item-title">
+                    <a href="#">{{'nav.planning' | translate}}</a>
+                </div>
+            </div>
+        </div>
+        <div class="row row-item-menu row-item-menu-middle">
+            <div class="menu-item-stack">
+                <div class="icon">
+                    <span class="material-icons-sharp">pie_chart</span>
+                </div>
+                <div class="menu-item-title">
+                    <a href="#">{{'nav.grafici' | translate}}</a>
+                </div>
+            </div>
+        </div>
+        <div class="row row-item-menu fixed-bottom">
+            <div class="menu-item-stack">
+                <div class="icon">
+                    <span class="material-icons">settings</span>
+                </div>
+                <div class="menu-item-title">
+                    <a href="#">{{'nav.impostazioni' | translate}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </nav>
