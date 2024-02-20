@@ -1,5 +1,4 @@
 nav{
-    height: 100%;
     justify-content: center;
     color: black;
 }
@@ -11,21 +10,22 @@ a, a:hover {
 }
 
 .col-sm {
+    padding-top: 10px;
     background-color: #F1F5F9;
     width: 104px;
-    height: 100%;
+    height: calc(100vh - 85.3px);
 }
 
 .material-icons-round {
-    font-size: 48px !important;
+    font-size: 32px !important;
 }
 
 .material-icons-sharp {
-    font-size: 48px !important;
+    font-size: 32px !important;
 }
 
 .material-icons {
-    font-size: 48px !important;
+    font-size: 32px !important;
 }
 
 .menu-item-stack {
