@@ -11,10 +11,10 @@ export interface State {
 
 }
 
-export const appReducers: ActionReducerMap<State> = {
+export const publicReducers: ActionReducerMap<State> = {
 
 };
 
 
 export const metaReducers: MetaReducer<State>[] = isDevMode() ? [] : [];
-export const appStoreKey = 'appState';
+export const publicStoreKey = 'publicState';

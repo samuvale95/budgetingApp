@@ -3,7 +3,7 @@ import { OnInitEffects } from "@ngrx/effects";
 import { Action } from "@ngrx/store";
 
 @Injectable()
-export class AppEffects implements OnInitEffects{
+export class PublicEffects implements OnInitEffects {
     ngrxOnInitEffects(): Action {
         throw new Error("Method not implemented.");
     }
