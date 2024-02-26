@@ -16,3 +16,5 @@ export const routes: Routes = [
         loadChildren: () => import('./private/private.routes').then( m => m.privateRoutes )
     },
 ];
+
+export default routes;

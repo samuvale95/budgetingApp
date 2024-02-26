@@ -1,5 +1,5 @@
 import { ApplicationConfig, importProvidersFrom } from '@angular/core';
-import { provideRouter } from '@angular/router';
+import { PreloadAllModules, provideRouter, withDebugTracing, withPreloading } from '@angular/router';
 
 import { routes } from './app.routes';
 import { HttpClient, provideHttpClient } from '@angular/common/http';
@@ -13,6 +13,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { AppEffects } from './store/app.effects';
 import { publicStoreKey } from './public/store';
 import { PublicEffects } from './public/store/public.effects';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 export function HttpLoaderFactory(httpClient: HttpClient){
   return new TranslateHttpLoader(httpClient, './assets/i18n/', '.json');
@@ -20,7 +21,11 @@ export function HttpLoaderFactory(httpClient: HttpClient){
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideRouter(routes),
+    provideRouter(
+      routes,
+      withPreloading(PreloadAllModules),
+      withDebugTracing()
+    ),
     provideHttpClient(),
     importProvidersFrom(
       TranslateModule.forRoot({
@@ -36,6 +41,6 @@ export const appConfig: ApplicationConfig = {
       StoreModule.forFeature(publicStoreKey, publicReducers),
       EffectsModule.forRoot({}),
       EffectsModule.forFeature([AppEffects, PublicEffects]),
-    ),
+    ), provideAnimationsAsync(),
   ]
 };

@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { publicRoutes } from './public.routes';
 
 @Component({
   selector: 'app-public',
   standalone: true,
-  imports: [],
+  imports: [RouterOutlet],
   templateUrl: './public.component.html',
   styleUrl: './public.component.scss'
 })
