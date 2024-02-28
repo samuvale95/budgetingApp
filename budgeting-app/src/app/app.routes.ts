@@ -1,5 +1,4 @@
 import { Routes } from '@angular/router';
-import { PrivateComponent } from './private/private.component';
 
 export const routes: Routes = [
     {
@@ -9,7 +8,7 @@ export const routes: Routes = [
     },
     {
         path: 'public', 
-        loadChildren: () => import('./public/public.routes').then( m => m.publicRoutes )
+        loadChildren: () => import('./public/public.routes').then( m => m.publicRoutes ),
     },
     {
         path: 'private', 

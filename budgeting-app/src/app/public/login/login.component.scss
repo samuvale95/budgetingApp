@@ -1,3 +1,10 @@
+.container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 /* Auto layout */
 .login-container {
     width: 700px;
@@ -56,7 +63,7 @@ button {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 60px;
+    margin-top: 45px;
     margin-bottom: 10px;
 }
 
