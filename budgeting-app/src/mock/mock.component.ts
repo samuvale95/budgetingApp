@@ -1,4 +1,6 @@
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { HttpMockFactory } from './http-mock-factory';
 
 @Component({
   selector: 'app-mock',
@@ -10,3 +12,9 @@ import { Component } from '@angular/core';
 export class MockComponent {
 
 }
+
+export const MockInterceptorProvider = {
+  provide: HTTP_INTERCEPTORS,
+  useClass: HttpMockFactory,
+  multi: true,
+};

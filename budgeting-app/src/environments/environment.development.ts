@@ -1,4 +1,4 @@
-import { MockComponent } from "../mock/mock.component";
+import { MockInterceptorProvider } from "../mock/mock.component";
 
 
 export const environment = {
@@ -7,5 +7,5 @@ export const environment = {
 };
 
 export const devDep = [
-    environment.mockEnable ? MockComponent : null
+    environment.mockEnable ? MockInterceptorProvider : null
 ];

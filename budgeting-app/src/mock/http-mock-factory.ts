@@ -15,7 +15,9 @@ enum RequestMethod {
 
 export type RequestMethodType = keyof typeof RequestMethod;
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class HttpMockFactory implements HttpInterceptor {
 
     private myMock = HttpMockFactory.mergeObjSmart(ServiceMock);
