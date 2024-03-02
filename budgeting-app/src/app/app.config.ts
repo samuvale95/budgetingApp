@@ -15,6 +15,7 @@ import { publicStoreKey } from './public/store';
 import { PublicEffects } from './public/store/public.effects';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { devDep } from '../environments/environment.development';
+import { privateReducers, privateStoreKey } from './private/store';
 
 export function HttpLoaderFactory(httpClient: HttpClient){
   return new TranslateHttpLoader(httpClient, './assets/i18n/', '.json');
@@ -39,6 +40,7 @@ export const appConfig: ApplicationConfig = {
       StoreModule.forRoot({}),
       StoreModule.forFeature(appStoreKey, appReducers),
       StoreModule.forFeature(publicStoreKey, publicReducers),
+      StoreModule.forFeature(privateStoreKey, privateReducers),
       EffectsModule.forRoot({}),
       EffectsModule.forFeature([AppEffects, PublicEffects]),
     ), provideAnimationsAsync(),
