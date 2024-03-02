@@ -4,7 +4,7 @@ import { EnvService } from '../core/env.service';
 import { StorageManagerService } from '../core/storage-manager/storage-manager.service';
 
 
-interface LoggedUserInfo {
+interface UserData {
   access_token: string;
   expires_in: number;
   name: string;
@@ -30,9 +30,9 @@ export class AuthService {
   }
 
   public login = (email: string, password: string) => {
-    this.http.post<LoggedUserInfo>(`${this.env.baseEndPoint}/v1/login`, {email: email, password: password})
+    this.http.post<UserData>(`${this.env.baseEndPoint}/v1/login`, {email: email, password: password})
     .subscribe((result)=>{
-      
+
       this.storageManager.setLocalItem("loggedUserInfo", result);
     })
   }
