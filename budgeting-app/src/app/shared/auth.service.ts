@@ -2,9 +2,12 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { EnvService } from '../core/env.service';
 import { StorageManagerService } from '../core/storage-manager/storage-manager.service';
+import { Store } from '@ngrx/store';
+import { PrivateActions } from '../private/store/private.actions';
+import { Observable } from 'rxjs';
 
 
-interface UserData {
+export interface UserData {
   access_token: string;
   expires_in: number;
   name: string;
@@ -21,7 +24,8 @@ export class AuthService {
   constructor(
     private http: HttpClient, 
     private env: EnvService,
-    private storageManager: StorageManagerService){
+    private storageManager: StorageManagerService,
+    private store: Store){
 
     }
 
@@ -29,11 +33,7 @@ export class AuthService {
     return true
   }
 
-  public login = (email: string, password: string) => {
-    this.http.post<UserData>(`${this.env.baseEndPoint}/v1/login`, {email: email, password: password})
-    .subscribe((result)=>{
-
-      this.storageManager.setLocalItem("loggedUserInfo", result);
-    })
+  public login = (email: string, password: string): Observable<UserData> => {
+    return this.http.post<UserData>(`${this.env.baseEndPoint}/v1/login`, {email: email, password: password});
   }
 }
