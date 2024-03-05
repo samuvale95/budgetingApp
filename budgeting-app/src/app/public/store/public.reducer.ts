@@ -1,5 +1,6 @@
-import { Action, createReducer } from "@ngrx/store";
+import { Action, createFeature, createReducer } from "@ngrx/store";
 import { PublicActions } from "./public.actions";
+import { publicStoreKey } from ".";
 
 export interface PublicState {
 }
@@ -7,10 +8,15 @@ export interface PublicState {
 export const initialState: PublicState = {
 };
 
-const appReducer = createReducer(
+const publicReducer = createReducer(
   initialState,
 );
 
 export function reducer(state: PublicState | undefined, action: Action) {
-  return appReducer(state, action);
+  return publicReducer(state, action);
 }
+
+export const publicFeature = createFeature({
+  name: publicStoreKey,
+  reducer: publicReducer
+})

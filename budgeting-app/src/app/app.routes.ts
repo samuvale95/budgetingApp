@@ -7,7 +7,7 @@ export const routes: Routes = [
         pathMatch: 'full'
     },
     {
-        path: 'public', 
+        path: 'public',
         loadChildren: () => import('./public/public.routes').then( m => m.publicRoutes ),
     },
     {
