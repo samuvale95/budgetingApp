@@ -4,7 +4,8 @@ import { EnvService } from '../core/env.service';
 import { StorageManagerService } from '../core/storage-manager/storage-manager.service';
 import { Store } from '@ngrx/store';
 import { PrivateActions } from '../private/store/private.actions';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
+import { RegistrationResponse } from '../public/store/models/registration';
 
 
 export interface UserData {
@@ -34,6 +35,10 @@ export class AuthService {
   }
 
   public login = (email: string, password: string): Observable<UserData> => {
-    return this.http.post<UserData>(`${this.env.baseEndPoint}/v1/login`, {email: email, password: password});
+    return this.http.post<UserData>(`${this.env.baseEndPoint}/login`, {email: email, password: password});
+  }
+
+  public registration = (email: string, password: string): Observable<RegistrationResponse> => {
+    return this.http.post<RegistrationResponse>(`${this.env.baseEndPoint}/register`, {email: email, password: password});
   }
 }

@@ -1,7 +1,7 @@
 import { ApplicationConfig, importProvidersFrom, isDevMode } from '@angular/core';
 import { PreloadAllModules, provideRouter, withPreloading } from '@angular/router';
 import { routes } from './app.routes';
-import { HttpClient, provideHttpClient } from '@angular/common/http';
+import { HttpClient, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { provideStore } from '@ngrx/store';
@@ -19,7 +19,9 @@ export function HttpLoaderFactory(httpClient: HttpClient){
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes, withPreloading(PreloadAllModules)),
-    provideHttpClient(),
+    provideHttpClient(
+      withInterceptorsFromDi()
+    ),
     importProvidersFrom(TranslateModule.forRoot({
         loader: {
             provide: TranslateLoader,

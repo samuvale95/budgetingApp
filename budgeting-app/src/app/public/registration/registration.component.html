@@ -1,11 +1,11 @@
 <div class="container">
     <div class="login-container">
         <h1>REGISTRATION</h1>
-        <form class="form-container">
+        <form class="form-container" [formGroup]="registrationForm">
             <h4>Already have an account? <a routerLink='/public/login'>Login</a></h4>
-            <input placeholder="Email">
-            <input placeholder="Password" type="password">
-            <input placeholder="Repeat password" type="password">
+            <input formControlName="email" required placeholder="Email">
+            <input formControlName="password1" required placeholder="Password" type="password">
+            <input formControlName="password2" required placeholder="Repeat password" type="password">
             <button>REGISTER</button>
         </form>
         <div class="text-post-form-container">

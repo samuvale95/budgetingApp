@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class EnvService {
 
   public environmentName: string = 'DEFAULT';
-  public baseEndPoint: string = 'http:localhost:8080';
+  public baseEndPoint: string = 'http://localhost:8080';
   public timeout: number = 180e3;
 
   constructor() { }

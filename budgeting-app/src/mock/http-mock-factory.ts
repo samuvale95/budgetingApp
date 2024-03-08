@@ -24,6 +24,7 @@ export class HttpMockFactory implements HttpInterceptor {
     private static readonly SPECIAL_CHAR = '{';
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+        console.log('Mock interceptor...');
         return of(null).pipe(
           mergeMap(() => this.handleRoute(request, next)),
           materialize(),
