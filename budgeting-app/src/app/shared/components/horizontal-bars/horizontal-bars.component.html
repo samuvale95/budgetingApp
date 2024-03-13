@@ -1,0 +1,15 @@
+<div>
+    <h2>{{title}}</h2>
+    <div *ngFor="let account of dataList">
+        <div class="infoContainer">
+            <div class="topTextContainer">
+                <h4 class="leftText">{{account.leftText}}</h4>
+                <span class="rightText">{{account.rightText}}€</span>
+            </div>
+            <div #container class="progressBarBg">
+                <div  class="progressBar" [ngStyle]="{width: (container.offsetWidth*(account.percentage/100))+'px'}"></div>
+            </div>
+            <span class="bottomText">{{account.bottomText}}</span>
+        </div>
+    </div>
+</div>

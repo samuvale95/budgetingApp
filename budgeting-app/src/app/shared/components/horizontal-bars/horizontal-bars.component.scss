@@ -1,0 +1,37 @@
+.infoContainer {
+    padding: 10px;
+    width: 424px;
+    background-color: #F1F5F9;
+}
+
+.progressBarBg{
+    background-color: white;
+    width: 424px;
+    height: 20px;
+}
+
+.progressBar{
+    width: calc(424*0.7px);
+    height: 20px;
+    background-color: #325288;
+}
+
+.topTextContainer{
+    display: flex;
+    justify-content: space-between;
+}
+
+.leftText{
+    width: 100px;
+    font-weight: bold;
+}
+
+.rightText {
+    float: right;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.bottomText{
+    font-size: 13px;
+}
