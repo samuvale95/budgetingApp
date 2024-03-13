@@ -4,7 +4,7 @@ import { Action, Store } from "@ngrx/store";
 import { map, switchMap } from "rxjs";
 import { PrivateActions } from "../../private/store/private.actions";
 import { PublicActions } from "./public.actions";
-import { AuthService } from "../../shared/auth.service";
+import { AuthService } from "../../shared/util-auth/auth.service";
 import { StorageManagerService } from "../../core/storage-manager/storage-manager.service";
 import { Router } from "@angular/router";
 

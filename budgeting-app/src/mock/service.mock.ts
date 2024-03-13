@@ -16,5 +16,28 @@ export const ServiceMock: AllKeyOfType<RequestMethodType, { [endPoint: string]: 
     }
   },
   PUT: {},
-  GET: {},
+  GET: {
+    'accounts': 
+      {
+        'accounts': 
+          [{
+            "name":"isybank",
+            "id": "dkwemd0405953095",
+            "balance": 12000,
+            "currency": "EUR"
+          },
+          {
+            "name":"Fineco",
+            "id": "fekfw302093",
+            "balance": 33054,
+            "currency": "EUR"
+          },
+          {
+            "name":"Revolut",
+            "id": "dklwnqpwk0291",
+            "balance": 5420,
+            "currency": "EUR"
+          }]
+      }
+  },
 };

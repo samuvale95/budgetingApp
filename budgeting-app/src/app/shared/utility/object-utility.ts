@@ -44,7 +44,7 @@ export class ObjectUtility {
       Object.keys(input).forEach(key => {
         const prop = input[key];
         if (this.isString(prop)) {
-          input[key] = this.trimStringAndNullify(prop, nullValue);
+          input[key] = this.trimStringObjAndNullify(prop, nullValue);
         } else if (Array.isArray(prop)) {
           input[key] = prop.map(n => this.trimStringObjAndNullify(n, nullValue));
         } else if (this.isObject(prop)) {
