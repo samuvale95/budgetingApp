@@ -7,6 +7,7 @@ import { map } from "rxjs";
 
 const getEntityState = createFeatureSelector<PrivateState>(privateStoreKey);
 export const getUserData = createSelector(getEntityState, (state: PrivateState) => state.userData);
+export const getAccounts = createSelector(getEntityState, (state: PrivateState) => state.accounts);
 
 @Injectable({providedIn: 'root'})
 export class PrivateSelectors {
@@ -15,6 +16,11 @@ export class PrivateSelectors {
 
   getUserData$ = this.store.pipe(
     select(getUserData),
+    map((e)=>ObjectUtility.deepClone(e))
+  );
+
+  getAccounts$ = this.store.pipe(
+    select(getAccounts),
     map((e)=>ObjectUtility.deepClone(e))
   )
 }

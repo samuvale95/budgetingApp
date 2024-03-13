@@ -1,10 +1,13 @@
-import { Action, createReducer } from "@ngrx/store";
+import { Action, createFeature, createReducer } from "@ngrx/store";
 import { immerOn } from "ngrx-immer/store";
 import { PrivateActions } from "./private.actions";
-import { UserData } from "../../shared/auth.service";
+import { UserData } from "../../shared/util-auth/auth.service";
+import { AccountInfo } from "./models/accounts-response";
+import { privateStoreKey } from ".";
 
 export interface PrivateState {
-  userData: UserData
+  userData: UserData,
+  accounts: AccountInfo[],
 }
 
 export const initialState: PrivateState = {
@@ -15,7 +18,8 @@ export const initialState: PrivateState = {
     surname: "",
     email: "",
     link_img: ""
-  }
+  },
+  accounts: [],
 };
 
 const privateReducer = createReducer(
@@ -23,8 +27,16 @@ const privateReducer = createReducer(
   immerOn(PrivateActions.saveUserInfo, (state, {userData}) => {
     state.userData = userData;
   }),
+  immerOn(PrivateActions.getAccountsSuccess, (state, {accountResponse}) => {
+    state.accounts = accountResponse.accounts;
+  })
 );
 
 export function reducer(state: PrivateState | undefined, action: Action) {
   return privateReducer(state, action);
 }
+
+export const privateFeature = createFeature({
+  name: privateStoreKey,
+  reducer: privateReducer
+})
