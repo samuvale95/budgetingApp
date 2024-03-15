@@ -2,11 +2,13 @@
     text-align: center;
     width: 120px;
     margin: 0;
+    display: inline-block;
 }
 
 .main {
     display: flex;
     align-items: center;
+    width: auto;
 }
 
 .top-text {
@@ -32,7 +34,7 @@
     width: 75%;
     height: 75%;
     border-radius: 50%;
-    background-color: white;
+    background-color: var(--bg-circle-color);
     display: flex;
     align-items: center;
     flex-direction: column;
