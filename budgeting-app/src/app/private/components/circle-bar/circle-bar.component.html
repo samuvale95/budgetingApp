@@ -1,0 +1,20 @@
+<h2 class="title">{{title}}</h2>
+<div class="main">
+    <div class="circle">
+        <div class="conic">
+            <h3 class="top-text">{{circleTitle}}</h3>
+            <span class="bottom-text">{{circleSubtitle}}</span>
+        </div>
+    </div>
+    <div class="details-container">
+        <ul >
+            <li *ngFor="let data of dataList">
+                <div class="left-side">
+                    <div class="square"></div>
+                    {{data.leftSideText}}
+                </div>
+                <span class="right-side">{{data.rightSideText}}</span>
+            </li>
+        </ul>
+    </div>
+</div>
