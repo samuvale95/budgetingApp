@@ -8,6 +8,8 @@ interface CircleBarContainerInfo {
   circleSubtitle: string;
   percentage: number;
   infoList: CircleBarInfo[];
+  mainColor?: string;
+  secondColor?: string;
 }
 
 @Component({
