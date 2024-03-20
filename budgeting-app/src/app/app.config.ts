@@ -10,7 +10,6 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { devDep } from '../environments/environment.development';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { provideEffects } from '@ngrx/effects';
-import { AppEffects } from './store/app.effects';
 
 export function HttpLoaderFactory(httpClient: HttpClient){
   return new TranslateHttpLoader(httpClient, './assets/i18n/', '.json');

@@ -1,5 +1,9 @@
 /* Importing Bootstrap SCSS file. */
 @import 'material-icons/iconfont/material-icons.css';
+
 html, body { height: 100%; margin: 0;}
 .app-route {height: 100%; display: block;}
 abody { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
