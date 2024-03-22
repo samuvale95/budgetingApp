@@ -32,14 +32,11 @@ export class CustomSelectButtonComponent implements OnInit {
 
   formControl: FormControl = new FormControl(null);
 
-  displayMonths = 1;
-	navigation = 'select';
-	showWeekNumbers = false;
-	outsideDays = 'visible';
-
-  constructor(private parent: FormGroupDirective,
+  constructor(
+    private parent: FormGroupDirective,
     private cdr: ChangeDetectorRef,
-    private dr: DestroyRef){}
+    private dr: DestroyRef
+  ){}
 
   ngOnInit(): void {
     this.formControl = this.parent.form.get(this.controlName) as FormControl;
