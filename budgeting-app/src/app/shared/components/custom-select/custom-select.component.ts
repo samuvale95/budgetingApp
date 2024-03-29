@@ -1,9 +1,7 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, DestroyRef, ElementRef, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
 import { SvgComponent } from '../../svg/svg.component';
-import { NgbDropdown, NgbDropdownItem, NgbDropdownMenu, NgbDropdownToggle } from '@ng-bootstrap/ng-bootstrap';
 import { AsyncPipe, NgClass, NgFor, NgIf } from '@angular/common';
-import { ControlContainer, FormControl, FormGroupDirective, ReactiveFormsModule } from '@angular/forms';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { FormControl, FormGroupDirective, ReactiveFormsModule } from '@angular/forms';
 
 export interface SelectOption {
   key: string;
@@ -33,8 +31,6 @@ export class CustomSelectButtonComponent implements OnInit {
 
   constructor(
     private parent: FormGroupDirective,
-    private cdr: ChangeDetectorRef,
-    private dr: DestroyRef,
     private eRef: ElementRef
   ){}
 
