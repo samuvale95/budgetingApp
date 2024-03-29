@@ -1,11 +1,11 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, DestroyRef, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, DestroyRef, ElementRef, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
 import { SvgComponent } from '../../svg/svg.component';
 import { NgbDropdown, NgbDropdownItem, NgbDropdownMenu, NgbDropdownToggle } from '@ng-bootstrap/ng-bootstrap';
-import { AsyncPipe, NgFor, NgIf } from '@angular/common';
+import { AsyncPipe, NgClass, NgFor, NgIf } from '@angular/common';
 import { ControlContainer, FormControl, FormGroupDirective, ReactiveFormsModule } from '@angular/forms';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
-interface SelectOption {
+export interface SelectOption {
   key: string;
   value: any;
 }
@@ -13,19 +13,18 @@ interface SelectOption {
 @Component({
   selector: 'app-custom-button',
   standalone: true,
-  imports: [SvgComponent, NgbDropdown, NgbDropdownToggle, NgbDropdownItem, NgbDropdownMenu, NgFor, NgIf, AsyncPipe, ReactiveFormsModule],
+  imports: [SvgComponent, NgFor, NgIf, AsyncPipe, ReactiveFormsModule, NgClass],
   templateUrl: './custom-select.component.html',
   styleUrl: './custom-select.component.scss',
-  viewProviders: [{provide: ControlContainer, useExisting: FormGroupDirective}],
-  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CustomSelectButtonComponent implements OnInit {
 
   @Input() controlName: string = '';
-  @Input() public iconName?: string;
+  @Input() public iconName: string = 'account'; 
   @Input() public title: string = '';
   @Input() public selectOptions: SelectOption[] = [];
   public selectedValue: string = '';
+  public isOpen: boolean = false;
 
   @Output() selectionChange: EventEmitter<SelectOption> = new EventEmitter<SelectOption>();
 
@@ -35,17 +34,33 @@ export class CustomSelectButtonComponent implements OnInit {
   constructor(
     private parent: FormGroupDirective,
     private cdr: ChangeDetectorRef,
-    private dr: DestroyRef
+    private dr: DestroyRef,
+    private eRef: ElementRef
   ){}
 
   ngOnInit(): void {
     this.formControl = this.parent.form.get(this.controlName) as FormControl;
-    this.formControl.statusChanges.pipe(takeUntilDestroyed(this.dr)).subscribe((_) => this.cdr.markForCheck());
+    this.formControl.statusChanges.subscribe((_) => {});
   }
 
   selectValue(value: SelectOption) {
     this.selectedValue = value.value;
     this.formControl.setValue(value.key);
+    this.selectionChange.emit(value);
+    this.toogleSelect()
   }
 
+  toogleSelect() {
+    this.isOpen = !this.isOpen;
+    if(!this.isOpen && !this.formControl.value){
+      this.formControl.markAsTouched();
+    }
+  }
+
+  @HostListener('document:click', ['$event'])
+  clickout(event: Event) {
+    if(!this.eRef.nativeElement.contains(event.target)) {
+      this.isOpen = false;
+    }
+  }
 }

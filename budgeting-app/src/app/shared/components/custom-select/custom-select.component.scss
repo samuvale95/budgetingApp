@@ -4,11 +4,7 @@
     width: fit-content;
 }
 
-.custom {
-    width: 562.5px;
-}
 .button {
-    width: 562.5px;
     height: 72px;
     border-radius: 5px;
 
@@ -61,4 +57,48 @@
 .switch:focus {
     outline: none !important;
     box-shadow: none;
+}
+
+.select-options {
+    list-style-type: none;
+    background-color: white;
+    border: 0.5px solid #666666;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 0;
+}
+
+.select-item {
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 15px;
+}
+.select-item:hover {
+    background-color: #F5F5F5;
+}
+
+@keyframes rotate0-90 {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(90deg);
+    }
+}
+
+@keyframes rotate90-0 {
+    from {
+        transform: rotate(90deg);
+    }
+    to {
+        transform: rotate(0deg);
+    }
+}
+
+.open {
+    animation: rotate0-90 0.1s linear forwards;
+}
+
+.close {
+    animation: rotate90-0 0.1s linear forwards;
 }
