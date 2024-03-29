@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CustomSwitchComponent } from './custom-switch.component';
+import { GraphsComponent } from './graphs.component';
 
-describe('CustomSwitchComponent', () => {
-  let component: CustomSwitchComponent;
-  let fixture: ComponentFixture<CustomSwitchComponent>;
+describe('GraphsComponent', () => {
+  let component: GraphsComponent;
+  let fixture: ComponentFixture<GraphsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CustomSwitchComponent]
+      imports: [GraphsComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(CustomSwitchComponent);
+    fixture = TestBed.createComponent(GraphsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
