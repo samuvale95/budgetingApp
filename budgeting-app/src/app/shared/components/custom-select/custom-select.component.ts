@@ -1,7 +1,7 @@
-import { Component, ElementRef, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
 import { SvgComponent } from '../../svg/svg.component';
 import { AsyncPipe, NgClass, NgFor, NgIf } from '@angular/common';
-import { FormControl, FormGroupDirective, ReactiveFormsModule } from '@angular/forms';
+import { ControlContainer, FormControl, FormGroupDirective, ReactiveFormsModule } from '@angular/forms';
 
 export interface SelectOption {
   key: string;
@@ -14,6 +14,7 @@ export interface SelectOption {
   imports: [SvgComponent, NgFor, NgIf, AsyncPipe, ReactiveFormsModule, NgClass],
   templateUrl: './custom-select.component.html',
   styleUrl: './custom-select.component.scss',
+  viewProviders: [{ provide: ControlContainer, useExisting: FormGroupDirective }],
 })
 export class CustomSelectButtonComponent implements OnInit {
 
@@ -27,7 +28,7 @@ export class CustomSelectButtonComponent implements OnInit {
   @Output() selectionChange: EventEmitter<SelectOption> = new EventEmitter<SelectOption>();
 
 
-  formControl: FormControl = new FormControl(null);
+  public formControl: FormControl = new FormControl(null);
 
   constructor(
     private parent: FormGroupDirective,
@@ -37,6 +38,17 @@ export class CustomSelectButtonComponent implements OnInit {
   ngOnInit(): void {
     this.formControl = this.parent.form.get(this.controlName) as FormControl;
     this.formControl.statusChanges.subscribe((_) => {});
+    
+    // Ottenere l'elemento genitore
+    const parentElement = this.eRef.nativeElement.parentElement;
+    
+    // Ottenere la larghezza del genitore
+    const parentWidth = parentElement.offsetWidth;
+    
+    // Impostare la larghezza del dropdown
+    const dropdown = parentElement.querySelector('.select-options');
+    dropdown.style.width = parentWidth + 'px';
+
   }
 
   selectValue(value: SelectOption) {

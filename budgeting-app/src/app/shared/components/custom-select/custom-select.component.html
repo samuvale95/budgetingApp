@@ -1,14 +1,16 @@
-<input type="hidden" [id]="controlName" [formControlName]="controlName">
-<div class="button" (click)="toogleSelect()">
-	<div class="left">
-		<app-icon [name]="iconName"></app-icon>
-		<h2 class="title">{{title}}</h2>
+<div class="select-container">
+	<input type="hidden" [id]="controlName" [formControlName]="controlName">
+	<div class="button" (click)="toogleSelect()">
+		<div class="left">
+			<app-icon [name]="iconName"></app-icon>
+			<h2 class="title">{{title}}</h2>
+		</div>
+		<div class="right">
+			<span>{{!!selectedValue?selectedValue:"Selected an option"}}</span>
+			<app-icon name="rightArrow" [ngClass]="isOpen?'open':'close'"></app-icon>
+		</div>
 	</div>
-	<div class="right">
-		<span>{{!!selectedValue?selectedValue:"Selected an option"}}</span>
-		<app-icon name="rightArrow" [ngClass]="isOpen?'open':'close'"></app-icon>
-	</div>
+	<ul *ngIf="isOpen" class="select-options">
+		<li class="select-item" *ngFor="let data of selectOptions" (click)="selectValue(data)">{{data.value}}</li>
+	</ul>
 </div>
-<ul *ngIf="isOpen" class="select-options">
-	<li class="select-item" *ngFor="let data of selectOptions" (click)="selectValue(data)">{{data.value}}</li>
-</ul>

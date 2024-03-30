@@ -31,32 +31,8 @@
     gap: 25px;
 }
 
-.dropdown-toggle::after {
-    display:none;
-}
-
-.input-date {
-    background: #F5F5F5;
-    border: none;
-    cursor: pointer;
-    height: fit-content;
-    // border: 0.2px solid #666666;
-    text-align: right;
-}
-
-.input-date:focus {
-    outline: none !important;
-    box-shadow: none;
-}
-
-.switch {
-    height: 25px;
-    width: 45px;
-}
-
-.switch:focus {
-    outline: none !important;
-    box-shadow: none;
+.select-container {
+    position: relative;
 }
 
 .select-options {
@@ -66,6 +42,9 @@
     border-radius: 5px;
     cursor: pointer;
     padding: 0;
+    position: absolute; 
+    width: 100%;
+    z-index: 1;
 }
 
 .select-item {
@@ -73,6 +52,7 @@
     padding: 10px;
     font-size: 15px;
 }
+
 .select-item:hover {
     background-color: #F5F5F5;
 }
