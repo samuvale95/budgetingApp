@@ -16,7 +16,7 @@ export interface SelectOption {
   styleUrl: './custom-select.component.scss',
   viewProviders: [{ provide: ControlContainer, useExisting: FormGroupDirective }],
 })
-export class CustomSelectButtonComponent implements OnInit {
+export class CustomSelectButtonComponent {
 
   @Input() controlName: string = '';
   @Input() public iconName: string = 'account'; 
@@ -31,25 +31,8 @@ export class CustomSelectButtonComponent implements OnInit {
   public formControl: FormControl = new FormControl(null);
 
   constructor(
-    private parent: FormGroupDirective,
     private eRef: ElementRef
   ){}
-
-  ngOnInit(): void {
-    this.formControl = this.parent.form.get(this.controlName) as FormControl;
-    this.formControl.statusChanges.subscribe((_) => {});
-    
-    // Ottenere l'elemento genitore
-    const parentElement = this.eRef.nativeElement.parentElement;
-    
-    // Ottenere la larghezza del genitore
-    const parentWidth = parentElement.offsetWidth;
-    
-    // Impostare la larghezza del dropdown
-    const dropdown = parentElement.querySelector('.select-options');
-    dropdown.style.width = parentWidth + 'px';
-
-  }
 
   selectValue(value: SelectOption) {
     this.selectedValue = value.value;

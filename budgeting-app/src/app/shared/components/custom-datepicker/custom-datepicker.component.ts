@@ -11,9 +11,8 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
   templateUrl: './custom-datepicker.component.html',
   styleUrl: './custom-datepicker.component.scss',
   viewProviders: [{ provide: ControlContainer, useExisting: FormGroupDirective }],
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CustomDatepickerComponent implements OnInit {
+export class CustomDatepickerComponent {
 
   displayMonths = 1;
 	navigation = 'select';
@@ -24,16 +23,4 @@ export class CustomDatepickerComponent implements OnInit {
   @Input() public title: string = '';
   @Input() public controlName: string = '';
 
-  formControl: FormControl = new FormControl(null);
-
-  constructor(
-    private parent: FormGroupDirective,
-    private cdr: ChangeDetectorRef,
-    private dr: DestroyRef
-  ){}
-
-  ngOnInit(): void {
-    this.formControl = this.parent.form.get(this.controlName) as FormControl;
-    this.formControl.statusChanges.pipe(takeUntilDestroyed(this.dr)).subscribe((_) => this.cdr.markForCheck());
-  }
 }

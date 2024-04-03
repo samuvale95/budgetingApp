@@ -1,4 +1,4 @@
-<div class="button" >
+<div class="button" (click)="toogle()">
 	<div class="left">
 		<app-icon [name]="iconName"></app-icon>
 		<h2 class="title">{{title}}</h2>
@@ -9,7 +9,8 @@
                 type="checkbox" 
                 role="switch" 
                 id="flexSwitchCheckDefault" 
-                [formControlName]=controlName>
+                [formControlName]="controlName"
+				[checked]="isChecked">
 		</div>
 	</div>
 </div>
