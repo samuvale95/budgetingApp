@@ -5,5 +5,13 @@
         "planning": "Planning",
         "grafici": "Grafici",
         "impostazioni": "Impostazioni"
+    },
+    "areaPrivata": {
+        "transizioni": "Transizioni",
+        "addTransizioni": "aggiungi una nuova transizione",
+        "income": "entrate",
+        "expense": "spese",
+        "transfer": "trasferimenti",
+        "details": "DETTAGLI"
     }
 }
