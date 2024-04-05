@@ -1,5 +1,6 @@
 nav{
-    justify-content: center;
+    position: absolute;
+    top: 0px;
     color: black;
 }
 
@@ -10,10 +11,9 @@ a, a:hover {
 }
 
 .col-sm {
-    padding-top: 10px;
     background-color: #F1F5F9;
     width: 104px;
-    height: calc(100vh - 85.3px);
+    height: calc(100vh - 60px);
 }
 
 .material-icons-round {
@@ -43,10 +43,4 @@ a, a:hover {
 
 .row-item-menu.row-item-menu-middle{
     margin-top: 30px;
-}
-
-.row-item-menu.fixed-bottom {
-    position: absolute;
-    bottom: 10px;
-    width: 104px;
 }

@@ -10,4 +10,8 @@ import { TranslateModule } from '@ngx-translate/core';
   styleUrl: './nav-menu.component.scss'
 })
 export class NavMenuComponent {
+
+  goTo = (path: string)=>{
+    
+  }
 }
