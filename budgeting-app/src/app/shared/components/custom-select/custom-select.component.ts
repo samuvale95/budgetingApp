@@ -9,7 +9,7 @@ export interface SelectOption {
 }
 
 @Component({
-  selector: 'app-custom-button',
+  selector: 'app-custom-select',
   standalone: true,
   imports: [SvgComponent, NgFor, NgIf, AsyncPipe, ReactiveFormsModule, NgClass],
   templateUrl: './custom-select.component.html',
